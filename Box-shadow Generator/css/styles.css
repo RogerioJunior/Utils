@@ -3,12 +3,17 @@
     margin: 0;
     padding: 0;
     background-color: #000;
+    color: #555;
+}
+
+body {
+    padding-bottom: 5rem;
 }
 
 h2 {
     margin-bottom: 1.6rem;
     text-align: center;
-    color: rebeccapurple;
+    color: #663399;
 }
 
 #box-shadow-generator {
@@ -44,8 +49,58 @@ h2 {
 
 .range-input input[type="range"] {
     -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 1.5rem;
+    background-color: #32313150;
+    outline: none;
 }
 
 .range-input input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #663399;
+    cursor: pointer;
+
+}
+
+.reference-input {
+    display: flex;
+    align-items: center;
+}
+
+.reference-input p {
+    margin-left: 0.25rem;
+}
+
+.form-control input[type="text"] {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-left: 1rem;
+    text-align: center;
+}
+
+#box {
+    width: 100%;
+    height: 18rem;
+    background-color: #663399;
+}
+
+#generated-rule {
+    text-align: center;
+}
+
+#generated-rule p {
+    background-color: #000;
+    margin-bottom: 0.5rem;
+}
+
+#rules-area {
+    background-color: #000;
+    max-width: 62rem;
+    margin: 0 auto;
+    border: 2px solid #663399;
+    padding: 1rem;
 }
