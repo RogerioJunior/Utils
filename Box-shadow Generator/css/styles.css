@@ -80,6 +80,9 @@ h2 {
     height: 1.8rem;
     margin-left: 1rem;
     text-align: center;
+    color: #663399;
+    border-style: solid;
+    border-color: #555;
 }
 
 #box {

@@ -41,21 +41,88 @@ class BoxShadowGenerator {
     this.webkitRule = webkitRule;
     this.mozRule = mozRule;
   }
+
+  initialize() {
+    this.horizontalRef.value = this.horizontal.value;
+    this.verticalRef.value = this.vertical.value;
+    this.spreadRef.value = this.spread.value;
+    this.blurRef.value = this.blur.value;
+
+    this.applyRule();
+    this.showRule();
+  }
+
+  applyRule() {
+    this.previewBox.style.boxShadow = `${this.horizontalRef.value}px ${this.verticalRef.value}px ${this.blurRef.value}px ${this.spreadRef.value}px #FFFFFF`;
+    this.currentRule = this.previewBox.style.boxShadow;
+  }
+
+  showRule() {
+    this.rule.innerText = this.currentRule;
+    this.webkitRule.innerText = this.currentRule;
+    this.mozRule.innerText = this.currentRule;
+  }
+
+  updateValue(type, value) {
+    switch (type) {
+      case "horizontal":
+        this.horizontalRef.value = value;
+        break
+      case "vertical":
+        this.verticalRef.value = value;
+        break
+      case "blur":
+        this.blurRef.value = value;
+        break
+      case "spread":
+        this.spreadRef.value = value;
+        break
+    }
+
+    this.applyRule();
+    this.showRule();
+  }
 }
 
 const boxShadow = new BoxShadowGenerator(
-    horizontal,
-    horizontalRef,
-    vertical,
-    verticalRef,
-    blur,
-    blurRef,
-    spread,
-    spreadRef,
-    previewBox,
-    rule,
-    webkitRule,
-    mozRule
+  horizontal,
+  horizontalRef,
+  vertical,
+  verticalRef,
+  blur,
+  blurRef,
+  spread,
+  spreadRef,
+  previewBox,
+  rule,
+  webkitRule,
+  mozRule
 );
+
+boxShadow.initialize();
+
+horizontal.addEventListener("input", (e) => {
+  const value = e.target.value;
+
+  boxShadow.updateValue("horizontal", value);
+});
+
+vertical.addEventListener("input", (e) => {
+  const value = e.target.value;
+
+  boxShadow.updateValue("vertical", value);
+});
+
+blur.addEventListener("input", (e) => {
+  const value = e.target.value;
+
+  boxShadow.updateValue("blur", value);
+});
+
+spread.addEventListener("input", (e) => {
+  const value = e.target.value;
+
+  boxShadow.updateValue("spread", value);
+});
 
 console.log(boxShadow);
